@@ -34,8 +34,12 @@ quotes = [
     '"The vision must be followed by the venture. It is not enough to stare up the steps - we must step up the stairs." ~ Vance Havner',
     '"Whatever you can do, or dream you can do, begin it. Boldness has genius, power and magic in it. Begin it now." ~ Goethe',
     ]
+displaystring=random.choice(quotes)
+text_width = len(displaystring)*10
 pattern = Image.open("input.jpg", "r").convert('RGBA')
-size = width, height = pattern.size
+baseheight = 50
+wsize = text_width
+pattern = pattern.resize((wsize, baseheight))
 draw = ImageDraw.Draw(pattern,'RGBA')
 #takes a random quote and draw on the given image or background
 draw.text((0,0), random.choice(quotes), (0, 0, 0, 0))#,font=font)
