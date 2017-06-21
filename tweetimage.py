@@ -41,9 +41,6 @@ baseheight = 50
 wsize = text_width
 pattern = pattern.resize((wsize, baseheight))
 draw = ImageDraw.Draw(pattern,'RGBA')
-#set font
-font_path = '/Library/Fonts/Arial.ttf'
-font = ImageFont.truetype(font_path, 14, encoding='unic')
 #takes a random quote and draw on the given image or background
 draw.text((0,0), random.choice(quotes), (0, 0, 0, 0))#,font=font)
 pattern.save('sample-out.jpg')
