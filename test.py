@@ -7,11 +7,7 @@ import os
 #tweepy is used to post to twitter
 #pillow library for converting string to image
 # Consumer keys and access tokens, used for OAuth
-consumer_key = 'gl9x7u1vq2eN6kaoYdSIxD8kR'
-consumer_secret = 'LU6OQRmONgSzGGQKDGSsgJvakM5bbXYM4HeUFdtO7dualm89jc'
-access_token = '2769645912-0cCDhCOQtJlJpU2zcps4u9w8ecFMWzGYCSi0BMK'
-access_token_secret = 'zEy5gkflLZ6DF84qmGLdCp9RNRDRX2sjOfdg9yX1rEyup'
- 
+from config import *
 # OAuth process, using the keys and tokens
 auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
 auth.set_access_token(access_token, access_token_secret)
