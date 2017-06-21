@@ -35,7 +35,7 @@ quotes = [
     '"Whatever you can do, or dream you can do, begin it. Boldness has genius, power and magic in it. Begin it now." ~ Goethe',
     ]
 displaystring=random.choice(quotes)
-text_width = len(displaystring)*10
+text_width = len(displaystring)*5
 pattern = Image.open("input.jpg", "r").convert('RGBA')
 baseheight = 50
 wsize = text_width
