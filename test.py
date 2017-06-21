@@ -38,7 +38,7 @@ pattern = Image.open("input.jpg", "r").convert('RGBA')
 size = width, height = pattern.size
 draw = ImageDraw.Draw(pattern,'RGBA')
 #takes a random quote and draw on the given image or background
-draw.text((30,10), random.choice(quotes), (0, 0, 0, 0))#,font=font)
+draw.text((0,0), random.choice(quotes), (0, 0, 0, 0))#,font=font)
 pattern.save('sample-out.jpg')
 # load image
 imagePath = "sample-out.jpg"
