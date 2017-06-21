@@ -4,30 +4,19 @@ from PIL import ImageFont
 import random
 import tweepy
 import os
- 
+#tweepy is used to post to twitter
+#pillow library for converting string to image
 # Consumer keys and access tokens, used for OAuth
-consumer_key = 'gl9x7u1vq2eN6kaoYdSIxD8kR'
-consumer_secret = 'LU6OQRmONgSzGGQKDGSsgJvakM5bbXYM4HeUFdtO7dualm89jc'
-access_token = '2769645912-0cCDhCOQtJlJpU2zcps4u9w8ecFMWzGYCSi0BMK'
-access_token_secret = 'zEy5gkflLZ6DF84qmGLdCp9RNRDRX2sjOfdg9yX1rEyup'
- 
+from config import *
 # OAuth process, using the keys and tokens
 auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
 auth.set_access_token(access_token, access_token_secret)
  
 # Creation of the actual interface, using authentication
-api = tweepy.API(auth)
-
-# Creates the user object. The me() method returns the user whose authentication keys were used.
-#user = api.me()
- 
-#print('Name: ' + user.name)
-#print('Location: ' + user.location)
-#print('Friends: ' + str(user.friends_count))
- 
-# Sample method, used to update a status
-# api.update_status('Hello Form RBI Lab!')
+api = tweepy.API(auth) 
+#set tweet status
 status = "Hi!=)"
+#array of quotes from which a new quote is selected randomly
 quotes = [
     '"The path to success is to take massive, determined action." ~ Tony Robbins',
     '"Kicking ass takes getting your ass kicked" ~ Jason Calacanis',
@@ -45,14 +34,14 @@ quotes = [
     '"The vision must be followed by the venture. It is not enough to stare up the steps - we must step up the stairs." ~ Vance Havner',
     '"Whatever you can do, or dream you can do, begin it. Boldness has genius, power and magic in it. Begin it now." ~ Goethe',
     ]
-pattern = Image.open("DANK.jpg", "r").convert('RGBA')
+pattern = Image.open("input.jpg", "r").convert('RGBA')
 size = width, height = pattern.size
 draw = ImageDraw.Draw(pattern,'RGBA')
-#font = ImageFont.truetype("Font.ttf", 3)
+#takes a random quote and draw on the given image or background
 draw.text((30,10), random.choice(quotes), (0, 0, 0, 0))#,font=font)
 pattern.save('sample-out.jpg')
 # load image
 imagePath = "sample-out.jpg"
-# Send the tweet.
+# Send the tweet with imagepath and status
 api.update_with_media(imagePath, status)
 
